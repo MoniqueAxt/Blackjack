@@ -1,0 +1,149 @@
+﻿<Window WindowStartupLocation="CenterScreen" ResizeMode="NoResize" x:Class="BlackJack_CardGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlackJack_CardGame"
+        mc:Ignorable="d"
+        Title="Play Blackjack" Width="772" Height="425">
+    <Grid HorizontalAlignment="Center" Width="772" Height="425">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="772*" MinWidth="772" MaxWidth="772"/>
+            <ColumnDefinition Width="107*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="218" Margin="312,83,0,0" Stroke="#FF756969" VerticalAlignment="Top" Width="1"/>
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="118,0,0,48">
+            <Button x:Name="BtnNewGame" Content="New round" Click="BtnNewGame_Click" Height="50" Margin="0,0,10,0" Width="90"/>
+            <Button x:Name="BtnNewGameDefault" Click="BtnNewGameDefault_Click" Width="90" Margin="0,0,10,0" >
+                <TextBlock Text="New round (default)" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button x:Name="BtnShuffle" Content="Shuffle" Margin="0,0,10,0" Width="90" Click="BtnShuffle_Click"/>
+            <Button x:Name="BtnBrowseDb" Content="View DB" Click="BtnBrowseDb_Click" Width="90" Margin="0,0,10,0" />
+            <Button x:Name="BtnExit" Content="Exit" Click="BtnExit_Click" Width="90"/>            
+        </StackPanel>
+
+        <Label x:Name="LblTitle" Content="Blackjack" FontSize="34" VerticalAlignment="Top" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Background="#FF99AB9C" Margin="0,9,0,0"/>
+        <StackPanel Margin="350,66,167,103">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label x:Name="lblActivePlayer" Content="Player 1&#xA;" FontSize="18"/>
+                <Label Content="-&#xA;" FontSize="18"/>
+                <Label x:Name="lblScore" Content="0&#xA;" RenderTransformOrigin="-2.489,-0.576" FontSize="18"/>
+            </StackPanel>
+            <StackPanel x:Name="canPlayerCards" Orientation="Horizontal" Margin="0,0,0,20" HorizontalAlignment="Center">
+                <Image Source="/Images/Ace of Hearts.png" Width="75" Height="106"/>
+                <Image Source="/Images/Two of Diamonds.png" Width="75" Height="106" Margin="-30,0,0,0"/>
+                <Image Source="/Images/Three of Clubs.png" Height="106" Width="75" Margin="-30,0,0,0"/>
+                <Image Source="/Images/Card back.png" Width="75" Height="106" Margin="-30,0,0,0"/>
+                <Image Source="/Images/Card back.png" Width="75" Height="106" Margin="-30,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <Button x:Name="BtnHit" Content="Hit" Height="37" Width="76" Click="BtnHit_Click" Opacity="0.99" Margin="0,0,20,0">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#FF51E045" Offset="1"/>
+                            <GradientStop Color="#FF0B200A" Offset="0"/>
+                            <GradientStop Color="#FF215D1C" Offset="0.02"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="BtnStand" Content="Stand" Height="37" Width="76" Click="BtnStand_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="#FFD01919" Offset="1"/>
+                            <GradientStop Color="#FFAF2525" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+            </StackPanel>
+            <ListBox x:Name="lbxActivePlayerHand" d:ItemsSource="{d:SampleData ItemCount=5}" IsSynchronizedWithCurrentItem="True" HorizontalAlignment="Left" Visibility="Collapsed"/>
+        </StackPanel>
+        <StackPanel Margin="30,66,487,121">
+            <StackPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center">
+                <Label Content="Dealer&#xA;" FontSize="18"/>
+                <Label Content="-&#xA;" FontSize="18"/>
+                <Label x:Name="LblDealerScore" Content="0&#xA;" RenderTransformOrigin="-2.489,-0.576" FontSize="18"/>
+            </StackPanel>
+            <StackPanel x:Name="canDealerCards" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <Image Source="/Images/Ace of Hearts.png" Width="75" Height="106"/>
+                <Image Source="/Images/Two of Diamonds.png" Width="75" Height="106" Margin="-30,0,0,0"/>
+                <Image Source="/Images/Three of Clubs.png" Height="106" Width="75" Margin="-30,0,0,0"/>
+                <Image Source="/Images/Card back.png" Width="75" Height="106" Margin="-30,0,0,0"/>
+                <Image Source="/Images/Card back.png" Width="75" Height="106" Margin="-30,0,0,0"/>
+            </StackPanel>
+            <ListBox x:Name="lbxDealerHand" d:ItemsSource="{d:SampleData ItemCount=5}" IsSynchronizedWithCurrentItem="True" HorizontalAlignment="Left" Visibility="Collapsed"/>
+        </StackPanel>
+        <StackPanel Margin="0,0,29,107" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="255">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Players:&#xA;" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="5,5,5,0"/>
+                <Label x:Name="LblNrPlayers" Content="0" RenderTransformOrigin="-2.489,-0.576" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Label Content="Decks:&#xA;" VerticalAlignment="Top" Padding="5,5,5,0"/>
+                <Label x:Name="LblNrDecks" Content="1" VerticalAlignment="Top"/>
+            </StackPanel>
+            <ListBox x:Name="lbxPlayers" d:ItemsSource="{d:SampleData ItemCount=5}" IsSynchronizedWithCurrentItem="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="{Binding Name}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Style.Triggers>
+                                            <DataTrigger
+                                               Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}, Mode=FindAncestor}}" Value="True">
+                                                <Setter Property="Foreground" Value="DodgerBlue"/>
+                                            </DataTrigger>
+                                            <DataTrigger      
+                                                Binding="{Binding IsHuman}" Value="True">
+                                                <Setter Property="Foreground" Value="#FFFF1EF6"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <TextBlock Text=": "/>
+                            <TextBlock Text="{Binding Score}" >
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding HasLost}" Value="True">
+                                                <Setter Property="Foreground" Value="Red"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+
+
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Margin="5,0,0,0">
+                <MenuItem x:Name="mnuFile" Header="_File">
+                    <MenuItem Header="_Load" Click="MnuLoad_Click" IsEnabled="False"/>                 
+                    <MenuItem Header="_Save" Click="MnuSave_Click"/>
+                    <MenuItem Header="_Close" Click="MnuClose_Click"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel/>
+        </DockPanel>
+
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,75 @@
+﻿<Window WindowStartupLocation="CenterScreen" ResizeMode="NoResize" x:Class="BlackJack_PL.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlackJack_PL" xmlns:system="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="View Database" Height="419" Width="407">
+    <Grid Margin="0,0,10,0" Height="421" VerticalAlignment="Top">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="180" Margin="10,10,0,0" VerticalAlignment="Top" Width="376">
+            <Grid>
+                <Label x:Name="lblFilter" Content="Search filters" HorizontalAlignment="Left" Margin="167,34,0,0" VerticalAlignment="Top" Width="197" Background="#FFE0E0E0" Height="24"/>
+
+                <Border BorderBrush="Black" BorderThickness="1" Margin="167,34,10,34"/>
+                <ListBox x:Name="lbxDbItems" d:ItemsSource="{d:SampleData ItemCount=5}" Height="111" VerticalAlignment="Center" HorizontalAlignment="Left" Width="153" SelectionChanged="ItcDbItems_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <TextBlock Text="{Binding GameName}"/>
+                                <TextBlock Text=", "/>
+                                <TextBlock Text="{Binding Id}"/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button x:Name="BtnDelete" Content="Delete" HorizontalAlignment="Left" Margin="0,148,0,0" VerticalAlignment="Top" Width="52" Click="BtnDelete_Click" Height="20"/>
+                <Label x:Name="lblInfo_Copy" Content="Games from DB" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF0765AD" FontSize="14"/>
+                <Button x:Name="btnFilter" Content="Filter" Margin="302,149,0,9" HorizontalAlignment="Left" Width="62" Height="20" Click="btnFilter_Click"/>
+
+                <Label x:Name="lblFilterNrPlayers" Content="Num players:" HorizontalAlignment="Left" Margin="172,91,0,0" VerticalAlignment="Top"/>
+                <ComboBox SelectedValuePath="Content" x:Name="cbxNrPlayers" HorizontalAlignment="Left" Margin="258,91,0,0" VerticalAlignment="Top" Width="47" IsReadOnly="True" Text="Nr players" RenderTransformOrigin="0.558,1.854">
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                    <ComboBoxItem Content="6"/>
+                    <ComboBoxItem Content="7"/>
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                </ComboBox>
+
+                <Label x:Name="lblFilterNrDecks" Content="Num decks:" HorizontalAlignment="Left" Margin="172,63,0,0" VerticalAlignment="Top"/>
+                <ComboBox SelectedValuePath="Content" x:Name="cbxNrDecks" HorizontalAlignment="Left" Margin="258,64,0,0" VerticalAlignment="Top" Width="47" IsReadOnly="True" Text="Nr decks" RenderTransformOrigin="0.558,1.854">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                </ComboBox>
+                <Label x:Name="lblFilterGameName" Content="Game name:" HorizontalAlignment="Left" Margin="171,117,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="tbxFilterGameName" HorizontalAlignment="Left" Margin="258,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+                <Button x:Name="btnReset" Content="Reset" Margin="167,149,0,9" HorizontalAlignment="Left" Width="62" Height="20" Click="btnReset_Click"/>
+            </Grid>
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Margin="10,202,0,0" VerticalAlignment="Top" Width="376" Height="177"/>
+
+        <Label x:Name="lblPlayers" Content="Players (0)" HorizontalAlignment="Left" Margin="219,222,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDealer" Content="Dealer Won? " HorizontalAlignment="Left" Margin="15,335,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblNrHumans" Content="Nr humans:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,312,0,0"/>
+        <ListBox x:Name="lbxPlayers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="222,248,0,0" Height="109" VerticalAlignment="Top" HorizontalAlignment="Left" Width="157"/>
+        <TextBox x:Name="tbxDealerWon" HorizontalAlignment="Left" Margin="101,339,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="78" IsReadOnly="True" Height="18"/>
+        <TextBox x:Name="tbxNrHumans" HorizontalAlignment="Left" Margin="101,316,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="78" IsReadOnly="True" Height="18"/>
+        <Label x:Name="lblInfo" Content="Data on selected Game" HorizontalAlignment="Left" Margin="26,202,0,0" VerticalAlignment="Top" Foreground="#FF0765AD" FontSize="14"/>
+        <StackPanel Margin="15,287,251,0" Orientation="Horizontal" Height="24" VerticalAlignment="Top">
+            <Label x:Name="lblNrDecks" Content="Nr decks:"/>
+            <TextBox x:Name="tbxNrDecks" TextWrapping="Wrap" Text="-" Width="78" IsReadOnly="True" Height="18" Margin="27,0,0,0"/>
+        </StackPanel>
+        <Button x:Name="BtnUpdate" Content="Update name" Width="120" Click="BtnEdit_Click" FontSize="10" Margin="59,258,0,0" HorizontalAlignment="Left" Height="18" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbxGameName" TextWrapping="Wrap" Text="-" Margin="59,236,278,0" Height="18" VerticalAlignment="Top"/>
+        <Label x:Name="lblGameName" Content="Name:" HorizontalAlignment="Left" Margin="15,232,0,0" RenderTransformOrigin="0.753,0.59" Height="26" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

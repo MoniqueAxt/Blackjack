@@ -1,0 +1,142 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Ace of Clubs.png" />
+    <None Remove="Ace of Diamonds.png" />
+    <None Remove="Ace of Hearts.png" />
+    <None Remove="Ace of Spades.png" />
+    <None Remove="Card back.png" />
+    <None Remove="Eight of Diamonds.png" />
+    <None Remove="Eight of Hearts.png" />
+    <None Remove="Five of Hearts.png" />
+    <None Remove="Four of Spades.png" />
+    <None Remove="gradient-wallpaper-8.jpg" />
+    <None Remove="Images\deck_cards.jpg" />
+    <None Remove="Images\Eight of Clubs.png" />
+    <None Remove="Images\Eight of Spades.png" />
+    <None Remove="Images\Five of Clubs.png" />
+    <None Remove="Images\Five of Diamonds.png" />
+    <None Remove="Images\Five of Spades.png" />
+    <None Remove="Images\Four of Clubs.png" />
+    <None Remove="Images\Four of Diamonds.png" />
+    <None Remove="Images\Four of Hearts.png" />
+    <None Remove="Images\Jack of Clubs.png" />
+    <None Remove="Images\Jack of Hearts.png" />
+    <None Remove="Images\Jack of Spades.png" />
+    <None Remove="Images\King of Clubs.png" />
+    <None Remove="Images\King of Diamonds.png" />
+    <None Remove="Images\King of Hearts.png" />
+    <None Remove="Images\King of Spades.png" />
+    <None Remove="Images\Nine of Clubs.png" />
+    <None Remove="Images\Nine of Diamonds.png" />
+    <None Remove="Images\Nine of Hearts.png" />
+    <None Remove="Images\Nine of Spades.png" />
+    <None Remove="Images\Queen of Clubs.png" />
+    <None Remove="Images\Queen of Diamonds.png" />
+    <None Remove="Images\Queen of Hearts.png" />
+    <None Remove="Images\Queen of Spades.png" />
+    <None Remove="Images\Seven of Clubs.png" />
+    <None Remove="Images\Seven of Diamonds.png" />
+    <None Remove="Images\Seven of Hearts.png" />
+    <None Remove="Images\Seven of Spades.png" />
+    <None Remove="Images\Six of Clubs.png" />
+    <None Remove="Images\Six of Diamonds.png" />
+    <None Remove="Images\Six of Hearts.png" />
+    <None Remove="Images\Six of Spades.png" />
+    <None Remove="Images\Ten of Clubs.png" />
+    <None Remove="Images\Ten of Diamonds.png" />
+    <None Remove="Images\Ten of Hearts.png" />
+    <None Remove="Images\Ten of Spades.png" />
+    <None Remove="Images\Three of Diamonds.png" />
+    <None Remove="Images\Three of Hearts.png" />
+    <None Remove="Images\Three of Spades.png" />
+    <None Remove="Images\Two of Clubs.png" />
+    <None Remove="Images\Two of Hearts.png" />
+    <None Remove="Images\Two of Spades.png" />
+    <None Remove="Jack of Diamonds.png" />
+    <None Remove="Three of Clubs.png" />
+    <None Remove="Two of Diamonds.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CardGame_BLL\CardGame_BLL.csproj" />
+    <ProjectReference Include="..\CardGame_EL\CardGame_EL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Ace of Clubs.png" />
+    <Resource Include="Images\Ace of Diamonds.png" />
+    <Resource Include="Images\Ace of Hearts.png" />
+    <Resource Include="Images\Ace of Spades.png" />
+    <Resource Include="Images\Card back.png" />
+    <Resource Include="Images\deck_cards.jpg" />
+    <Resource Include="Images\Eight of Clubs.png" />
+    <Resource Include="Images\Eight of Diamonds.png" />
+    <Resource Include="Images\Eight of Hearts.png" />
+    <Resource Include="Images\Eight of Spades.png" />
+    <Resource Include="Images\Five of Clubs.png" />
+    <Resource Include="Images\Five of Diamonds.png" />
+    <Resource Include="Images\Five of Hearts.png" />
+    <Resource Include="Images\Five of Spades.png" />
+    <Resource Include="Images\Four of Clubs.png" />
+    <Resource Include="Images\Four of Diamonds.png" />
+    <Resource Include="Images\Four of Hearts.png" />
+    <Resource Include="Images\Four of Spades.png" />
+    <Resource Include="Images\Jack of Clubs.png" />
+    <Resource Include="Images\Jack of Diamonds.png" />
+    <Resource Include="Images\Jack of Hearts.png" />
+    <Resource Include="Images\Jack of Spades.png" />
+    <Resource Include="Images\King of Clubs.png" />
+    <Resource Include="Images\King of Diamonds.png" />
+    <Resource Include="Images\King of Hearts.png" />
+    <Resource Include="Images\King of Spades.png" />
+    <Resource Include="Images\Nine of Clubs.png" />
+    <Resource Include="Images\Nine of Diamonds.png" />
+    <Resource Include="Images\Nine of Hearts.png" />
+    <Resource Include="Images\Nine of Spades.png" />
+    <Resource Include="Images\Queen of Clubs.png" />
+    <Resource Include="Images\Queen of Diamonds.png" />
+    <Resource Include="Images\Queen of Hearts.png" />
+    <Resource Include="Images\Queen of Spades.png" />
+    <Resource Include="Images\Seven of Clubs.png" />
+    <Resource Include="Images\Seven of Diamonds.png" />
+    <Resource Include="Images\Seven of Hearts.png" />
+    <Resource Include="Images\Seven of Spades.png" />
+    <Resource Include="Images\Six of Clubs.png" />
+    <Resource Include="Images\Six of Diamonds.png" />
+    <Resource Include="Images\Six of Hearts.png" />
+    <Resource Include="Images\Six of Spades.png" />
+    <Resource Include="Images\Ten of Clubs.png" />
+    <Resource Include="Images\Ten of Diamonds.png" />
+    <Resource Include="Images\Ten of Hearts.png" />
+    <Resource Include="Images\Ten of Spades.png" />
+    <Resource Include="Images\Three of Clubs.png" />
+    <Resource Include="Images\Three of Diamonds.png" />
+    <Resource Include="Images\Three of Hearts.png" />
+    <Resource Include="Images\Three of Spades.png" />
+    <Resource Include="Images\Two of Clubs.png" />
+    <Resource Include="Images\Two of Diamonds.png" />
+    <Resource Include="Images\Two of Hearts.png" />
+    <Resource Include="Images\Two of Spades.png" />
+  </ItemGroup>
+
+</Project>
