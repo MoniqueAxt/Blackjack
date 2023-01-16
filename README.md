@@ -8,10 +8,10 @@
 <h4 align="center">A Blackjack game written in C# .NET</h4>
 <p align="center"> Play as a human yourself, or set up a game of bots and see who wins. Created to play around with this specific programming language, learn about turn-based game logic and work with a database.</p>
 
-<img src="https://www.moniqueaxt.com/images/gallery-BJ-Main_screen_1.jpg" width="16%"></img>
-<img src="https://www.moniqueaxt.com/images/gallery-BJ-Main_screen_2.jpg" width="16%"></img>
-<img src="https://www.moniqueaxt.com/images/gallery-BJ-Game_settings.jpg" width="16%"></img>
-<img src="https://www.moniqueaxt.com/images/gallery-BJ-database.jpg" width="16%"></img>
+<img src="https://www.moniqueaxt.com/images/gallery-BJ-Main_screen_1.jpg" width="24%"></img>
+<img src="https://www.moniqueaxt.com/images/gallery-BJ-Main_screen_2.jpg" width="24%"></img>
+<img src="https://www.moniqueaxt.com/images/gallery-BJ-Game_settings.jpg" width="24%"></img>
+<img src="https://www.moniqueaxt.com/images/gallery-BJ-database.jpg" width="24%"></img>
 
 ## Design
 
